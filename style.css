@@ -1,0 +1,183 @@
+/* Reset all default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up a full screen layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://downloader.la/temp/[Downloader.la]-679f7b02ef161.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Centering the container */
+.container {
+    background: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Header with bold text */
+.header h1 {
+    font-size: 2.5rem;
+    color: #ff66b2; /* Pink */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Styling for the main message text */
+.message p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+/* Options and buttons section */
+.options {
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Button styling */
+button {
+    background-color: #ff66b2;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    margin: 10px 0;
+    width: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #ff3385;
+    transform: scale(1.05);
+}
+
+/* Response styling */
+.response {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Make the anchor tag look like a button */
+.talk-button {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 12px 30px;
+    background-color: #ff66b2;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.talk-button:hover {
+    background-color: #ff3385;
+    transform: scale(1.05);
+}
+
+/* Optional responsive tweaks */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .message p {
+        font-size: 1.1rem;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Floating kisses animation like bubbles */
+.kiss {
+    position: absolute;
+    width: 40px; /* Size of the kiss mark image */
+    height: 40px; /* Ensure the image scales properly */
+    background-image: url('https://em-content.zobj.net/source/apple/96/kiss-mark_1f48b.png'); /* Transparent kiss mark image */
+    background-size: cover;
+    animation: bubbleAnimation 6s infinite; /* Bubble animation */
+    pointer-events: none; /* So they don't block other elements */
+}
+
+/* Keyframes for the bubble animation */
+@keyframes bubbleAnimation {
+    0% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.2) translateY(-100px) rotate(20deg);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1.4) translateY(-300px) rotate(40deg);
+        opacity: 0.8;
+    }
+    60% {
+        transform: scale(1.6) translateY(-500px) rotate(60deg);
+        opacity: 0.6;
+    }
+    80% {
+        transform: scale(1.8) translateY(-700px) rotate(80deg);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(2) translateY(-900px) rotate(100deg);
+        opacity: 0;
+    }
+}
+
+/* Centered kisses container */
+#kisses-container {
+    position: absolute; /* Allows kiss marks to float */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Buglem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hey Buglem...</h1>
+        </div>
+
+        <div class="message">
+            <p>Lately, I feel like our friendship isn't the same as it used to be.</p>
+            <p>I really miss how we used to talk and share everything.</p>
+            <p>You’re an amazing friend, and I hope we can reconnect like before.</p>
+            <p>No matter what, you’ll always be special to me. 💖</p>
+        </div>
+
+        <div class="options">
+            <h2>How should our friendship continue?</h2>
+            <button class="btn" onclick="storeChoice('end')">End</button>
+            <button class="btn" id="continue-btn" onclick="storeChoice('continue'); explodeButton()">Continue</button>
+            <button class="btn">
+                <a href="https://www.instagram.com/anis_is_heere/" target="_blank" class="talk-button" onclick="storeChoice('talk')">We have to talk and see</a>
+            </button>
+        </div>
+
+        <div id="response" class="response"></div>
+    </div>
+
+    <div id="kisses-container"></div> <!-- Container for the kissing emojis -->
+
+    <script>
+        function storeChoice(choice) {
+            localStorage.setItem('buglemChoice', choice);
+            showResponse(choice);
+        }
+
+        function showResponse(choice) {
+            let responseText = '';
+            if (choice === 'end') {
+                responseText = '<p>I’m sad to hear that, but I respect your decision.</p>';
+            } else if (choice === 'continue') {
+                responseText = '<p>Great! Let’s work on strengthening our friendship.</p>';
+            } else if (choice === 'talk') {
+                responseText = '<p>I agree. Let’s talk more and see where things go from here.</p>';
+            }
+
+            document.getElementById('response').innerHTML = responseText;
+            document.getElementById('response').style.display = 'block';
+        }
+
+        function explodeButton() {
+            const continueBtn = document.getElementById('continue-btn');
+            continueBtn.style.display = 'none';
+
+            for (let i = 0; i < 200; i++) {
+                const kiss = document.createElement('img');
+                kiss.src = 'https://em-content.zobj.net/source/apple/96/kiss-mark_1f48b.png';
+                kiss.classList.add('kiss');
+                kiss.style.left = `${Math.random() * 100}%`;
+                kiss.style.animationDelay = `${Math.random() * 2}s`;
+                document.getElementById('kisses-container').appendChild(kiss);
+            }
+
+            setTimeout(() => {
+                document.getElementById('response').innerHTML += '<p>💋💋💋💋💋💋💋💋💋💋💋💋💋💋</p>';
+                document.getElementById('response').style.display = 'block';
+            }, 600);
+        }
+
+        window.onload = function() {
+            const savedChoice = localStorage.getItem('buglemChoice');
+            if (savedChoice) {
+                showResponse(savedChoice);
+            }
+        }
+    </script>
+</body>
+</html>
